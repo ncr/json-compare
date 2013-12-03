@@ -47,6 +47,7 @@ module JsonCompare
     end
 
     def compare_arrays(old_array, new_array)
+      new_array ||= []
       old_array_length = old_array.count
       new_array_length = new_array.count
       inters = [old_array.count, new_array.count].min
