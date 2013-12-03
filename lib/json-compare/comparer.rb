@@ -16,11 +16,11 @@ module JsonCompare
           diff_hash = compare_hashes(old, new)
         end
         diff = diff_hash if diff_hash.count > 0
-      elsif (!is_boolean(old) || !is_boolean(new)) && old.class != new.class
-        diff = new
       elsif old.kind_of? Array
         diff_arr = compare_arrays(old, new)
         diff = diff_arr if diff_arr.count > 0
+      elsif (!is_boolean(old) || !is_boolean(new)) && old.class != new.class
+        diff = new
       else
         string_diff = compare_strings(old, new)
         diff = string_diff unless string_diff.nil?
