@@ -40,7 +40,7 @@ module JsonCompare
           result[:remove][k] = old_hash[k]
         else
           diff = compare_elements(old_hash[k], new_hash[k])
-          result[:update][k] = diff unless diff.empty?
+          result[:update][k] = diff unless diff.try(:empty?)
         end
       end
       filter_results(result)
